@@ -3,8 +3,10 @@ const clickableBtn = document.getElementById("clickable");
 const yourNr = document.getElementById("your-nr");
 const selected = document.getElementById("selected");
 const game = document.getElementById("game");
+const won = document.getElementById("won-games");
 const arrSel = [];
-let gameNr = 0
+let gameNr = 0;
+let gamesWon = 0;
 
 
 const arrHundredLabels = () => {
@@ -63,6 +65,9 @@ const reset = () => {
 })
         selected.textContent = "00";
         yourNr.textContent = "000";
+        if (gameNr === 50) {
+            alert(`You won ${gamesWon} out of 50.`)
+        }
         }
 
 const areYouDead = (arr) => {
@@ -71,6 +76,8 @@ const areYouDead = (arr) => {
         reset();
         gameNr++
         game.textContent = gameNr
+        gamesWon++
+        won.textContent = gamesWon;
     } else if (arr.length === 50) {
         alert("You're done.");
         reset();
@@ -95,5 +102,3 @@ clickableBtn.addEventListener("click", () => {
 
     yourNr.textContent = Math.floor(Math.random() * 100 + 1);
 })
-
-//next: compare arrnums with "your number"(also produce number).
