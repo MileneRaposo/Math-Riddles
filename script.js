@@ -74,8 +74,8 @@ const areYouDead = (arr) => {
     } else if (arr.length === 50) {
         alert("You're done.");
         reset();
-        gameNr++
-        game.textContent = gameNr
+        gameNr++;
+        game.textContent = gameNr;
     }
 }
 
